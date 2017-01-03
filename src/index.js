@@ -21,7 +21,7 @@
  * @example Loading an SVG, omitting the extension
  * loadSvgFile('images/icons')
  */
-function loadSvgFile (url, options) {
+export default function loadSvgFile (url, options) {
   const urlType = typeof url
 
   if (!url || urlType !== 'string') {
@@ -61,5 +61,3 @@ function loadSvgFile (url, options) {
   xhr.open('get', url, true)
   xhr.send()
 }
-
-module.exports = loadSvgFile
