@@ -7,6 +7,8 @@
     "test": "test"
   },
   "scripts": {
+    "gulp": "gulp --gulpfile task/index.js",
+    "build": "npm run gulp -- build",
     "check": "standard",
     "fix": "standard --fix",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -44,6 +46,7 @@
   },
   "homepage": "https://github.com/atjse/load-svg-file#readme",
   "devDependencies": {
+    "gulp": "^3.9.1",
     "standard": "^11.0.1"
   }
 }
