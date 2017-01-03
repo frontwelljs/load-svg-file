@@ -22,4 +22,4 @@ Contribution
 License
 =======
 
-[MIT](LICENSE.md) @ [Richard Szakacs](www.github.com/richardszkcs)
+[MIT](LICENSE.md) @ [Richard Szakacs](https://www.github.com/richardszkcs)
