@@ -2,7 +2,7 @@
   "name": "load-svg-file",
   "version": "0.0.0",
   "description": "Load SVG files over XHR and embed the SVG content into the DOM.",
-  "main": "src/main.js",
+  "main": "src/index.js",
   "directories": {
     "test": "test"
   },
