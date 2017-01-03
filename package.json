@@ -11,6 +11,9 @@
     "fix": "standard --fix",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "standard": {
+    "globals": ["XMLHttpRequest"]
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/atjse/load-svg-file.git"
