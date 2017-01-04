@@ -11,7 +11,8 @@
     "build": "npm run gulp -- build",
     "check": "standard",
     "fix": "standard --fix",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "test-ci": "echo \"Error: no test specified\" && exit 1"
   },
   "standard": {
     "globals": [
