@@ -1,0 +1,2 @@
+// {{source}}
+module.exports = loadSvgFile

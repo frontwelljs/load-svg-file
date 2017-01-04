@@ -1,0 +1,2 @@
+// {{source}}
+export default loadSvgFile

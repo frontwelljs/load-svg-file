@@ -2,6 +2,6 @@
 
 const gulp = require('gulp')
 
-gulp.task('default', () => {
-  return gulp;
-})
+require('./build')
+
+gulp.task('default', ['build'])

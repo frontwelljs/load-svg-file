@@ -21,7 +21,7 @@
  * @example Loading an SVG, omitting the extension
  * loadSvgFile('images/icons')
  */
-export default function loadSvgFile (url, options) {
+function loadSvgFile (url, options) {
   const urlType = typeof url
 
   if (!url || urlType !== 'string') {
