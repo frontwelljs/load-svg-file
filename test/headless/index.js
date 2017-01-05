@@ -84,7 +84,10 @@ describe('loadSvgFile', async function () {
 
     // run headless browser
     const puppeteer = require('puppeteer')
-    browser = await puppeteer.launch({timeout: 10000})
+    browser = await puppeteer.launch({
+      timeout: 10000,
+      args: ['--no-sandbox', '--disable-setuid-sandbox']
+    })
     page = await browser.newPage()
 
     //page.on('console', msg => console.log(msg.text()))
