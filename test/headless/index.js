@@ -75,8 +75,6 @@ describe('loadSvgFile', async function () {
         break
     }
 
-    // console.log(process.argv, type, file)
-
     // start server
     await connect()
       .use(serveStatic(p.normalize(`${__dirname}/../../`), {index: `test/headless/${file}`}))
@@ -89,8 +87,6 @@ describe('loadSvgFile', async function () {
       args: ['--no-sandbox', '--disable-setuid-sandbox']
     })
     page = await browser.newPage()
-
-    // page.on('console', msg => console.log(msg.text()))
 
     await page.goto(`${url}`)
 
