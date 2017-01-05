@@ -30,12 +30,19 @@
   "standard": {
     "globals": [
       "loadSvgFile",
-      "XMLHttpRequest"
+      "XMLHttpRequest",
+      "Container",
+      "describe",
+      "before",
+      "after",
+      "beforeEach",
+      "afterEach",
+      "it",
+      "assert"
     ],
     "ignore": [
       "dist/*.*",
-      "src/tmpl/*.*",
-      "test/**/*.*"
+      "src/tmpl/*.*"
     ]
   },
   "repository": {

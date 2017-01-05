@@ -86,7 +86,7 @@ describe('loadSvgFile', function () {
           assert(!Container.containsSvg())
           done()
         })
-        .catch(done);
+        .catch(done)
     })
 
     it('should load an SVG file and resolve it, when loaded', (done) => {
