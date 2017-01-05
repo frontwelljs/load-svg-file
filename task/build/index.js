@@ -20,7 +20,7 @@ const path = {
   dest: '../dist'
 }
 
-const pkg = require('../../package');
+const pkg = require('../../package')
 const dedent = require('dentist').dedent
 const name = pkg.name
 const placeholder = '// {{source}}'
@@ -71,13 +71,14 @@ function fix (file) {
   // remove unneeded 'use strict' in umd module;
   fixed = fixed.replace(/'use strict';[\n\s]+(\/\/ UMD)/gm, (matches, match) => `${match}`)
 
-  file.contents = new Buffer(fixed)
+  file.contents = Buffer.from(fixed)
 }
 
 /* ---------------------------------------------------------------------------------------------------------------------
  | Development Builds
  */
 
+/* eslint-disable no-multi-spaces */
 gulp.task('build.development.es5', () => {
   return gulp                     // quick rundown:
     .src(path.source)             // read the given template
@@ -87,6 +88,7 @@ gulp.task('build.development.es5', () => {
     .pipe(rename(`${name}.js`))   // rename the file
     .pipe(gulp.dest(path.dest))   // save to the dist folder
 })
+/* eslint-enable no-multi-spaces */
 
 gulp.task('build.development.es6', () => {
   return gulp
@@ -142,6 +144,7 @@ gulp.task('build.development', [
  | Production Builds
  */
 
+/* eslint-disable no-multi-spaces */
 gulp.task('build.production.es5', () => {
   return gulp                                               // quick rundown:
     .src(path.source)                                       // read the template
@@ -154,6 +157,7 @@ gulp.task('build.production.es5', () => {
     .pipe(sourcemaps.write(path.dest, {addComment: false})) // save the sourcemap
     .pipe(gulp.dest(path.dest))                             // save the file to dist
 })
+/* eslint-enable no-multi-spaces */
 
 gulp.task('build.production.amd', () => {
   return gulp

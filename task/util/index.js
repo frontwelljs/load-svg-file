@@ -10,7 +10,7 @@ function getHost () {
 }
 
 async function getFreePort () {
-  return await freePort({ port: PORT })
+  return freePort({ port: PORT })
 }
 
 function getUrl (port = PORT) {
