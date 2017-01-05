@@ -1,6 +1,6 @@
 'use strict'
 
-class Container {
+class Container { // eslint-disable-line no-unused-vars
   static __getSvgContent () {
     return '<!--?xml version="1.0" encoding="UTF-8"?--><svg xmlns="http://www.w3.org/2000/svg">' +
       '<symbol id="doc" viewBox="0 0 685 776"><path d="M597.6 124H233.7c-35.5 0-64.2 26-64.2 58.2v659.6c0 ' +
@@ -12,7 +12,7 @@ class Container {
   static __getContainer () {
     const elements = document.querySelectorAll('body > div')
 
-    for (let i = 0, element; element = elements[i++];) {
+    for (let i = 0, element; (element = elements[i++]);) {
       if (element.id === '') {
         return element
       }
@@ -63,13 +63,12 @@ class Container {
     const checkCallback = () => Container.exists()
 
     const id = setInterval(() => {
-        if (checkCallback() === true) {
-          doneCallback()
-          clearInterval(id)
-        }
-      },
-      0
+      if (checkCallback() === true) {
+        doneCallback()
+        clearInterval(id)
+      }
+    },
+    0
     )
   }
 }
-
