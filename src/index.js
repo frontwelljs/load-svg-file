@@ -69,7 +69,7 @@
  * @example Loading an SVG file, omitting the extension.
  * loadSvgFile('images/icons')
  */
-function loadSvgFile (url, optionsOrCallback, callback) {
+function loadSvgFile (url, optionsOrCallback, callback) { // eslint-disable-line no-unused-vars
   let type = typeof url
 
   if (!url || type !== 'string') {
@@ -94,21 +94,16 @@ function loadSvgFile (url, optionsOrCallback, callback) {
     callback = optionsOrCallback
   }
 
-  //const usePromise = typeof options.usePromise === 'boolean' ? options.usePromise : true
-
   let promise
-  let resolve
-  let reject
+  let res
+  let rej
 
-  //if(usePromise && typeof Promise !== "undefined"){
-  if(typeof Promise !== "undefined"){
-    promise = new Promise((res, rej) => {
-      resolve = res
-      reject = rej
+  if (typeof Promise !== 'undefined') {
+    promise = new Promise((resolve, reject) => {
+      res = resolve
+      rej = reject
     })
   }
-
-  //console.log('usePromise', usePromise, Promise)
 
   const xhr = new XMLHttpRequest()
 
@@ -135,16 +130,15 @@ function loadSvgFile (url, optionsOrCallback, callback) {
         if (callback) {
           callback()
         } else if (promise) {
-          resolve()
+          res()
         }
-
       } else {
         const error = new Error(`Cannot load SVG file: "${url}".`)
 
         if (callback) {
           callback(error)
         } else if (promise) {
-          reject(error)
+          rej(error)
         }
       }
     }

@@ -29,7 +29,14 @@
   },
   "standard": {
     "globals": [
+      "loadSvgFile",
       "XMLHttpRequest"
+    ],
+    "ignore": [
+      "dist/*.*",
+      "src/tmpl/*.*",
+      "task/**/*.*",
+      "test/**/*.*"
     ]
   },
   "repository": {
