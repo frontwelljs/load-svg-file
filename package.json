@@ -9,10 +9,23 @@
   "scripts": {
     "gulp": "gulp --gulpfile task/index.js",
     "build": "npm run gulp -- build",
+    "serve": "npm run gulp -- serve",
+    "test": "mocha test/headless/index.js",
+    "test-type-es5": "npm run test -- --es5",
+    "test-type-es5-min": "npm run test -- --es5-min",
+    "test-type-amd": "npm run test -- --amd",
+    "test-type-amd-min": "npm run test -- --amd-min",
+    "test-type-commonjs": "npm run test -- --commonjs",
+    "test-type-umd-browser": "npm run test -- --umd-browser",
+    "test-type-umd-browser-min": "npm run test -- --umd-browser-min",
+    "test-type-umd-amd": "npm run test -- --umd-amd",
+    "test-type-umd-amd-min": "npm run test -- --umd-amd-min",
+    "test-type-umd-commonjs": "npm run test -- --umd-commonjs",
+    "test-type-umd-commonjs-min": "npm run test -- --umd-commonjs-min",
+    "test-all": "npm-run-all test-type-*",
+    "test-ci": "npm run build && npm run test-all",
     "check": "standard",
-    "fix": "standard --fix",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "test-ci": "echo \"Error: no test specified\" && exit 1"
+    "fix": "standard --fix"
   },
   "standard": {
     "globals": [
@@ -49,7 +62,10 @@
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-preset-env": "^1.7.0",
+    "chai": "^4.1.2",
+    "connect": "^3.6.6",
     "dentist": "^1.0.3",
+    "get-port": "^3.2.0",
     "gulp": "^3.9.1",
     "gulp-babel": "^7.0.1",
     "gulp-header": "^2.0.5",
@@ -58,6 +74,12 @@
     "gulp-sourcemaps": "^2.6.4",
     "gulp-tap": "^1.0.1",
     "gulp-uglify": "^3.0.0",
+    "livereload": "^0.7.0",
+    "mocha": "^5.2.0",
+    "npm-run-all": "^4.1.3",
+    "puppeteer": "^1.5.0",
+    "require1k": "^2.0.0",
+    "serve-static": "^1.13.2",
     "standard": "^11.0.1"
   }
 }

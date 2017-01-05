@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>loadSvgFile</title>
+  </head>
+  <body>
+    <script src="../../node_modules/require1k/require1k.js"></script>
+    <script src="../../test/util/container.js"></script>
+
+    <script>
+      R("../../dist/load-svg-file.commonjs", function (error, index) {
+        if (error) {
+          console.log(error.statusText)
+          return;
+        }
+
+        window['loadSvgFile'] = index
+      })
+    </script>
+  </body>
+</html>

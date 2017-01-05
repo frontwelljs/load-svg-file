@@ -8,10 +8,20 @@ define(function () {
   'use strict';
 
   /**
-   * @typedef {Object} optionsObject
+   * The options of the SVG content loading function.
+   *
+   * @typedef {Object} optionsType
    *
    * @property {string}  [class='']  - The class of the script tag, in which the content of the SVG file will be loaded.
    * @property {boolean} [hide=true] - Hide the script tag to prevent showing the content of the loaded SVG file.
+   */
+
+  /**
+   * The SVG content loading callback.
+   *
+   * @callback callbackType
+   *
+   * @param {Object} error - The error, that caused the failure.
    */
 
   /**
@@ -19,20 +29,60 @@ define(function () {
    *
    * @function loadSvgFile
    *
-   * @param {string}        url       - The URL of the SVG file to load. The .svg extension can be omitted.
-   * @param {optionsObject} [options] - The options of the SVG file loader.
+   * @param {string}                   url                 - The URL of the SVG file to load.
+   *                                                         The .svg extension can be omitted.
+   * @param {optionsType|callbackType} [optionsOrCallback] - The options of the SVG file loader or the callback.
+   * @param {callback}                 [callback]          - The result callback
    *
-   * @example Loading an SVG
+   * @returns {Promise|null} Promise if supported and not turned off, otherwise null.
+   *
+   * @example Loading an SVG file.
    * loadSvgFile('images/icons.svg')
    *
-   * @example Loading an SVG, omitting the extension
+   * @example Loading an SVG file with options.
+   * loadSvgFile('images/icons.svg', {
+   *  class: 'custom-class', // custom class on the container element
+   *  hide: false            // don't hide the container element
+   * })
+   *
+   * @example Loading an SVG file with callback.
+   * loadSvgFile('images/icons.svg', function (error) {
+   *  if (error) {
+   *    throw error
+   *  }
+   *  console.log('SVG Loaded successfully')
+   * })
+   *
+   * @example Loading an SVG file with options and callback.
+   * loadSvgFile(
+   *   'images/icons.svg',
+   *   {
+   *     class: 'custom-class', // custom class on the container element
+   *     hide: false            // don't hide the container element
+   *   },
+   *   function (error) {
+   *     if (error) {
+   *       throw error
+   *     }
+   *     console.log('SVG Loaded successfully')
+   *   }
+   * )
+   *
+   * @example Loading an SVG file using promises.
+   * loadSvgFile('images/icons.svg')
+   *   .then(() => console.log('SVG Loaded successfully'))
+   *   .catch(error => console.log(error))
+   *
+   * @example Loading an SVG file, omitting the extension.
    * loadSvgFile('images/icons')
    */
-  function loadSvgFile(url, options) {
-    var urlType = typeof url;
+  function loadSvgFile(url, optionsOrCallback, callback) {
+    var type = typeof url;
 
-    if (!url || urlType !== 'string') {
-      throw new Error('The url must be a non-empty string, got:"' + urlType + '".');
+    if (!url || type !== 'string') {
+      type = type !== 'string' ? type : 'empty ' + type;
+
+      throw new Error('The url must be a non-empty string, got: "' + type + '".');
     }
 
     // check if the url has the .svg extension, otherwise append to it automatically
@@ -40,33 +90,74 @@ define(function () {
       url += '.svg';
     }
 
+    var options = optionsOrCallback || {};
+
+    type = typeof optionsOrCallback;
+
+    if (optionsOrCallback && type === 'object') {
+      options = optionsOrCallback;
+    } else if (type === 'function') {
+      options = {};
+      callback = optionsOrCallback;
+    }
+
+    //const usePromise = typeof options.usePromise === 'boolean' ? options.usePromise : true
+
+    var promise = void 0;
+    var resolve = void 0;
+    var reject = void 0;
+
+    //if(usePromise && typeof Promise !== "undefined"){
+    if (typeof Promise !== "undefined") {
+      promise = new Promise(function (res, rej) {
+        resolve = res;
+        reject = rej;
+      });
+    }
+
+    //console.log('usePromise', usePromise, Promise)
+
     var xhr = new XMLHttpRequest();
 
-    xhr.onload = function () {
-      var div = document.createElement('div');
-      div.innerHTML = this.responseText;
+    xhr.onloadend = xhr.onerror = function () {
+      if (xhr.status === 200) {
+        var element = document.createElement('div');
+        element.innerHTML = xhr.response;
 
-      options = options || {};
-      var elementClass = typeof options.class === 'boolean' ? options.class : '';
+        var elementClass = typeof options.class === 'string' ? options.class : '';
 
-      if (elementClass) {
-        div.className = elementClass;
+        if (elementClass.length > 0) {
+          element.className = elementClass;
+        }
+
+        var hideElement = typeof options.hide === 'boolean' ? options.hide : true;
+
+        if (hideElement) {
+          element.style.display = 'none';
+        }
+
+        document.body.appendChild(element);
+
+        if (callback) {
+          callback();
+        } else if (promise) {
+          resolve();
+        }
+      } else {
+        var error = new Error('Cannot load SVG file: "' + url + '".');
+
+        if (callback) {
+          callback(error);
+        } else if (promise) {
+          reject(error);
+        }
       }
-
-      var hideElement = typeof options.hide === 'boolean' ? options.hide : true;
-
-      if (hideElement) {
-        div.style.display = 'none';
-      }
-
-      var scripts = document.getElementsByTagName('script');
-      var script = scripts[scripts.length - 1];
-
-      script.parentNode.insertBefore(div, script);
     };
 
     xhr.open('get', url, true);
-    xhr.send();
+    xhr.send(null);
+
+    return promise || null;
   }
 
   return loadSvgFile;

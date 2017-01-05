@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>loadSvgFile</title>
+  </head>
+  <body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.5/require.min.js"
+            integrity="sha256-0SGl1PJNDyJwcV5T+weg2zpEMrh7xvlwO4oXgvZCeZk="
+            crossorigin="anonymous"></script>
+
+    <script src="../../test/util/container.js"></script>
+
+    <script>
+      require.config({
+        baseUrl: '/',
+        paths: {
+          loadSvgFile: '../../dist/load-svg-file.amd',
+        }
+      });
+
+      require(['loadSvgFile'], function(loadSvgFile) {
+        window['loadSvgFile'] = loadSvgFile
+      });
+    </script>
+  </body>
+</html>

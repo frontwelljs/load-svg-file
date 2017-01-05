@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>loadSvgFile</title>
+    <link rel="stylesheet" href="../../node_modules/mocha/mocha.css">
+  </head>
+  <body>
+  <div id="mocha"></div>
+
+    <script src="../../node_modules/mocha/mocha.js"></script>
+    <script src="../../node_modules/chai/chai.js"></script>
+
+    <script src="../../test/util/container.js"></script>
+    <script src="../../src/index.js"></script>
+
+    <script>
+      mocha.setup('bdd')
+      const assert = chai.assert
+    </script>
+
+    <script src="../../test/src/tests.js"></script>
+
+    <script>
+      mocha.run()
+    </script>
+  </body>
+</html>
