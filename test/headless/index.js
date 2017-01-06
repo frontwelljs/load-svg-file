@@ -3,6 +3,7 @@
 const p = require('path')
 
 const assert = require('chai').assert
+const pti = require('puppeteer-to-istanbul')
 const util = require('../../task/util')
 
 const type = process.argv[process.argv.length - 1]
@@ -26,51 +27,51 @@ describe('loadSvgFile', async function () {
 
     switch (type) {
       default:
-      case '--es5':
+      case '--type-es5':
         file = 'index.html'
         break
 
-      case '--es5-min':
+      case '--type-es5-min':
         file = 'index-min.html'
         break
 
-      case '--amd':
+      case '--type-amd':
         file = 'index-amd.html'
         break
 
-      case '--amd-min':
+      case '--type-amd-min':
         file = 'index-amd-min.html'
         break
 
-      case '--commonjs':
+      case '--type-commonjs':
         file = 'index-commonjs.html'
         break
 
-      case '--umd-browser':
+      case '--type-umd-browser':
         file = 'index-umd-browser.html'
         break
 
-      case '--umd-browser-min':
+      case '--type-umd-browser-min':
         file = 'index-umd-browser-min.html'
         break
 
-      case '--umd-amd':
+      case '--type-umd-amd':
         file = 'index-umd-amd.html'
         break
 
-      case '--umd-amd-min':
+      case '--type-umd-amd-min':
         file = 'index-umd-amd-min.html'
         break
 
-      case '--umd-commonjs':
+      case '--type-umd-commonjs':
         file = 'index-umd-commonjs.html'
         break
 
-      case '--umd-commonjs-min':
+      case '--type-umd-commonjs-min':
         file = 'index-umd-commonjs-min.html'
         break
 
-      case '--es6':
+      case '--type-es6':
         file = 'index-es6.html'
         break
     }
@@ -88,6 +89,8 @@ describe('loadSvgFile', async function () {
     })
     page = await browser.newPage()
 
+    // enable coverage
+    await page.coverage.startJSCoverage()
     await page.goto(`${url}`)
 
     // wait for everything to load
@@ -104,6 +107,10 @@ describe('loadSvgFile', async function () {
   })
 
   after(async () => {
+    // save coverage
+    const jsCoverage = await page.coverage.stopJSCoverage()
+    pti.write(jsCoverage)
+
     await browser.close()
     setTimeout(() => process.exit(), 0)
   })

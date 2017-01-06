@@ -14,3 +14,6 @@ before_install:
 
 script:
   - npm run test-ci
+
+after_success:
+  - npm run coverage

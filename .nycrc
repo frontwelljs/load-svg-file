@@ -1,0 +1,19 @@
+{
+  "check-coverage": false,
+  "per-file": true,
+  "lines": 100,
+  "statements": 100,
+  "functions": 100,
+  "branches": 100,
+  "include": [
+    "**/load-svg-file*.js"
+  ],
+  "reporter": [
+    "lcov",
+    "json",
+    "html",
+    "text",
+    "text-summary"
+  ],
+  "cache": true
+}
