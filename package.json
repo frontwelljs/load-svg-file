@@ -26,7 +26,7 @@
     "test-type-umd-amd-min": "nyc --report-dir coverage/umd-amd-min mocha test/headless/index.js --type-umd-amd-min",
     "test-type-umd-commonjs": "nyc --report-dir coverage/umd-commonjs mocha test/headless/index.js --type-umd-commonjs",
     "test-type-umd-commonjs-min": "nyc --report-dir coverage/umd-commonjs-min mocha test/headless/index.js --type-umd-commonjs-min",
-    "coverage": "npm run gulp -- coveralls"
+    "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "standard": {
     "globals": [
