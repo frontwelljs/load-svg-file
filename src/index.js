@@ -25,7 +25,7 @@
  * @param {string}                   url                 - The URL of the SVG file to load.
  *                                                         The .svg extension can be omitted.
  * @param {optionsType|callbackType} [optionsOrCallback] - The options of the SVG file loader or the callback.
- * @param {callback}                 [callback]          - The result callback
+ * @param {callbackType}             [callback]          - The result callback
  *
  * @returns {Promise|null} Promise if supported and not turned off, otherwise null.
  *
