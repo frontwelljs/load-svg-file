@@ -1,12 +1,13 @@
 {
-  "check-coverage": false,
+  "check-coverage": true,
   "per-file": true,
-  "lines": 100,
-  "statements": 100,
-  "functions": 100,
+  "statements": 99,
   "branches": 100,
+  "functions": 100,
+  "lines": 99,
   "include": [
-    "**/load-svg-file*.js"
+    "**/js/load-svg-file*.js",
+    "**/js/index.js"
   ],
   "reporter": [
     "lcov",
@@ -15,5 +16,7 @@
     "text",
     "text-summary"
   ],
-  "cache": true
+  "cache": true,
+  "sourceMap": false,
+  "instrument": false
 }
