@@ -118,6 +118,7 @@ describe('loadSvgFile', async function () {
   beforeEach(async () => {
     await page.evaluate(() => Container.clear())
   })
+
   afterEach(async () => {
     await page.evaluate(() => Container.clear())
   })
@@ -127,9 +128,14 @@ describe('loadSvgFile', async function () {
       const result = await page.evaluate(() => {
         const errors = []
 
+        TestEnvironment.disablePromise()
+
         try { loadSvgFile() } catch (error) { errors.push(error.message) }
         try { loadSvgFile(null) } catch (error) { errors.push(error.message) }
         try { loadSvgFile('') } catch (error) { errors.push(error.message) }
+        try { loadSvgFile(1) } catch (error) { errors.push(error.message) }
+
+        TestEnvironment.enablePromise()
 
         return errors
       })
@@ -137,7 +143,8 @@ describe('loadSvgFile', async function () {
       assert.deepEqual(result, [
         'The url must be a non-empty string, got: "undefined".',
         'The url must be a non-empty string, got: "object".',
-        'The url must be a non-empty string, got: "empty string".'
+        'The url must be a non-empty string, got: "empty string".',
+        'The url must be a non-empty string, got: "number".'
       ])
     })
 
