@@ -281,12 +281,52 @@ describe('loadSvgFile', async function () {
       assert.equal(containsSvg, false)
     })
 
-    it('should load an SVG file and resolve it, when loaded', async () => {
+    it('should load an SVG file and resolve it, when loaded - ES2015 syntax (new Promise())', async () => {
+      await page.evaluate(async () => {
+        const promise = loadSvgFile('test/util/content.svg')
+
+        return new Promise(resolve => promise.then(() => resolve()))
+      })
+
+      const containsSvg = await page.evaluate(() => Container.containsSvg())
+
+      assert.equal(containsSvg, true)
+    })
+
+    it('should load an SVG file and resolve it, when loaded - ES2017 syntax (async/await)', async () => {
       await page.evaluate(async () => loadSvgFile('test/util/content.svg'))
 
       const containsSvg = await page.evaluate(() => Container.containsSvg())
 
       assert.equal(containsSvg, true)
+    })
+  })
+
+  describe('when called, where Promise is not available', () => {
+    it('should load an SVG file', async () => {
+      const result = await page.evaluate(async () => {
+        const _Promise = TestEnvironment.getPromise()
+
+        TestEnvironment.disablePromise()
+
+        const result = new _Promise(resolve => {
+          const returnValue = loadSvgFile('test/util/content.svg', () => {
+            resolve({
+              returnValue: returnValue,
+              containerExists: Container.exists(),
+              containsSvg: Container.containsSvg()
+            })
+          })
+        })
+
+        TestEnvironment.enablePromise()
+
+        return result
+      })
+
+      assert.equal(result.returnValue, null)
+      assert.equal(result.containerExists, true)
+      assert.equal(result.containsSvg, true)
     })
   })
 })
