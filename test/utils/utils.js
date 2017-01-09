@@ -1,5 +1,28 @@
 'use strict'
 
+class TestEnvironment { // eslint-disable-line no-unused-vars
+  static disablePromise () {
+    if (Promise) {
+      TestEnvironment.__Promise = Promise
+      Promise = null // eslint-disable-line no-global-assign
+    }
+  }
+
+  static enablePromise () {
+    if (!Promise) {
+      Promise = TestEnvironment.__Promise // eslint-disable-line no-global-assign
+    }
+  }
+
+  static getPromise () {
+    if (!Promise) {
+      return TestEnvironment.__Promise
+    }
+
+    return Promise
+  }
+}
+
 class Container { // eslint-disable-line no-unused-vars
   static __getSvgContent () {
     return '<!--?xml version="1.0" encoding="UTF-8"?--><svg xmlns="http://www.w3.org/2000/svg">' +
