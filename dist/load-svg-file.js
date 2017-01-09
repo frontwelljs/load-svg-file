@@ -31,7 +31,7 @@
  * @param {string}                   url                 - The URL of the SVG file to load.
  *                                                         The .svg extension can be omitted.
  * @param {optionsType|callbackType} [optionsOrCallback] - The options of the SVG file loader or the callback.
- * @param {callback}                 [callback]          - The result callback
+ * @param {callbackType}             [callback]          - The result callback
  *
  * @returns {Promise|null} Promise if supported and not turned off, otherwise null.
  *
@@ -76,6 +76,7 @@
  * loadSvgFile('images/icons')
  */
 function loadSvgFile(url, optionsOrCallback, callback) {
+  // eslint-disable-line no-unused-vars
   var type = typeof url;
 
   if (!url || type !== 'string') {
@@ -100,21 +101,16 @@ function loadSvgFile(url, optionsOrCallback, callback) {
     callback = optionsOrCallback;
   }
 
-  //const usePromise = typeof options.usePromise === 'boolean' ? options.usePromise : true
-
   var promise = void 0;
-  var resolve = void 0;
-  var reject = void 0;
+  var res = void 0;
+  var rej = void 0;
 
-  //if(usePromise && typeof Promise !== "undefined"){
-  if (typeof Promise !== "undefined") {
-    promise = new Promise(function (res, rej) {
-      resolve = res;
-      reject = rej;
+  if (Promise) {
+    promise = new Promise(function (resolve, reject) {
+      res = resolve;
+      rej = reject;
     });
   }
-
-  //console.log('usePromise', usePromise, Promise)
 
   var xhr = new XMLHttpRequest();
 
@@ -140,7 +136,7 @@ function loadSvgFile(url, optionsOrCallback, callback) {
       if (callback) {
         callback();
       } else if (promise) {
-        resolve();
+        res();
       }
     } else {
       var error = new Error('Cannot load SVG file: "' + url + '".');
@@ -148,7 +144,7 @@ function loadSvgFile(url, optionsOrCallback, callback) {
       if (callback) {
         callback(error);
       } else if (promise) {
-        reject(error);
+        rej(error);
       }
     }
   };
