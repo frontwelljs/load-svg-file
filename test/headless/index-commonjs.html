@@ -9,10 +9,10 @@
     <script src="../../test/util/container.js"></script>
 
     <script>
-      R("../../dist/load-svg-file.commonjs", function (error, index) {
+      R("../../dist/load-svg-file.commonjs", (error, index) => {
         if (error) {
           console.log(error.statusText)
-          return;
+          return
         }
 
         window['loadSvgFile'] = index

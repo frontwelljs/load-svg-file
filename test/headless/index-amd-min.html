@@ -14,14 +14,10 @@
     <script>
       require.config({
         baseUrl: '/',
-        paths: {
-          loadSvgFile: '../../dist/load-svg-file.amd.min',
-        }
-      });
+        paths: { loadSvgFile: '../../dist/load-svg-file.amd.min' }
+      })
 
-      require(['loadSvgFile'], function(loadSvgFile) {
-        window['loadSvgFile'] = loadSvgFile
-      });
+      require('loadSvgFile', loadSvgFile => window['loadSvgFile'] = loadSvgFile)
     </script>
   </body>
 </html>
