@@ -98,7 +98,7 @@ function loadSvgFile (url, optionsOrCallback, callback) { // eslint-disable-line
   let res
   let rej
 
-  if (typeof Promise !== 'undefined') {
+  if (Promise) {
     promise = new Promise((resolve, reject) => {
       res = resolve
       rej = reject
