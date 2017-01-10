@@ -89,6 +89,9 @@ describe('loadSvgFile', async function () {
     })
     page = await browser.newPage()
 
+    // uncomment this line below to see console.log(...) in headless mode
+    // page.on('console', msg => console.log(msg.text()))
+
     // enable coverage
     await page.coverage.startJSCoverage()
     await page.goto(`${url}`)
