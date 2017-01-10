@@ -288,7 +288,7 @@ describe('loadSvgFile', async function () {
       assert.equal(containsSvg, false)
     })
 
-    it('should load an SVG file and resolve it, when loaded - ES2015 syntax (new Promise())', async () => {
+    it('should load an SVG file and resolve it, when loaded - ES2015 syntax (new Promise(...))', async () => {
       await page.evaluate(async () => {
         const promise = loadSvgFile('test/utils/content.svg')
 
