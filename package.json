@@ -85,7 +85,6 @@
     "gulp": "^3.9.1",
     "gulp-babel": "^7.0.1",
     "gulp-coveralls": "^0.1.4",
-    "gulp-debug": "^4.0.0",
     "gulp-header": "^2.0.5",
     "gulp-rename": "^1.2.3",
     "gulp-replace": "^1.0.0",
