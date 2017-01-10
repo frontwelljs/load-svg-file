@@ -6,11 +6,16 @@ const tap = require('gulp-tap')
 const coveralls = require('gulp-coveralls')
 
 gulp.task('coveralls', () => {
+  const pkg = require('../../package')
+
   return gulp
     .src('../coverage/lcov.info')
-    .pipe(debug())
-    .pipe(tap(function(file) {
-      console.log(file.contents.toString())
+    .pipe(tap(file => {
+      let content = file.contents.toString()
+
+      content = content.replace(/(SF):(.*index.js)/, (matches, prefix) => `${prefix}:${pkg.name}.js`)
+
+      file.contents = Buffer.from(content)
     }))
     .pipe(coveralls())
 })
