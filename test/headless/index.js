@@ -27,12 +27,16 @@ describe('loadSvgFile', async function () {
 
     switch (type) {
       default:
-      case '--type-es5':
+      case '--type-src':
         file = 'index.html'
         break
 
+      case '--type-es5':
+        file = 'index-es5.html'
+        break
+
       case '--type-es5-min':
-        file = 'index-min.html'
+        file = 'index-es5-min.html'
         break
 
       case '--type-amd':
@@ -152,7 +156,7 @@ describe('loadSvgFile', async function () {
     })
 
     it('should throw an error, when trying to load a non-existent SVG file', async () => {
-      const file = 'test/util/non-existent-content.svg'
+      const file = 'test/utils/non-existent-content.svg'
 
       const result = await page.evaluate(async (file) => {
         return (() => new Promise(resolve => {
@@ -173,7 +177,7 @@ describe('loadSvgFile', async function () {
   describe('when called properly', () => {
     it('should load an SVG file, no callback', async () => {
       const result = await page.evaluate(async () => {
-        loadSvgFile('test/util/content.svg')
+        loadSvgFile('test/utils/content.svg')
 
         return (() => new Promise(resolve => {
           Container.check(() => resolve({
@@ -190,7 +194,7 @@ describe('loadSvgFile', async function () {
     it('should load an SVG file, using a callback', async () => {
       const result = await page.evaluate(async () => {
         return (() => new Promise(resolve => {
-          loadSvgFile('test/util/content.svg', () => {
+          loadSvgFile('test/utils/content.svg', () => {
             resolve({
               containerExists: Container.exists(),
               containsSvg: Container.containsSvg()
@@ -206,7 +210,7 @@ describe('loadSvgFile', async function () {
     it('should load an SVG file, using custom options and a callback', async () => {
       const result = await page.evaluate(async () => {
         return (() => new Promise(resolve => {
-          loadSvgFile('test/util/content.svg', {}, () => {
+          loadSvgFile('test/utils/content.svg', {}, () => {
             resolve({
               containerExists: Container.exists(),
               containsSvg: Container.containsSvg()
@@ -222,7 +226,7 @@ describe('loadSvgFile', async function () {
     it('should load an SVG file, even without ".svg" extension', async () => {
       const result = await page.evaluate(async () => {
         return (() => new Promise(resolve => {
-          loadSvgFile('test/util/content', () => {
+          loadSvgFile('test/utils/content', () => {
             resolve({
               containerExists: Container.exists(),
               containsSvg: Container.containsSvg()
@@ -241,7 +245,7 @@ describe('loadSvgFile', async function () {
       const customClass = 'custom-class'
 
       const result = await page.evaluate(async (customClass) => {
-        loadSvgFile('test/util/content.svg', { class: customClass })
+        loadSvgFile('test/utils/content.svg', { class: customClass })
 
         return (() => new Promise(resolve => {
           Container.check(() => resolve({ hasClass: Container.hasClass(customClass) }))
@@ -253,7 +257,7 @@ describe('loadSvgFile', async function () {
 
     it('should load an SVG file without hiding the container element', async () => {
       const result = await page.evaluate(async () => {
-        loadSvgFile('test/util/content.svg', { hide: false })
+        loadSvgFile('test/utils/content.svg', { hide: false })
 
         return (() => new Promise(resolve => {
           Container.check(() => resolve({ isVisible: Container.isVisible() }))
@@ -266,7 +270,7 @@ describe('loadSvgFile', async function () {
 
   describe('when called, where Promise is available', () => {
     it('should try to load an SVG file and reject it, when there was an error', async () => {
-      const file = 'test/util/non-existent-content.svg'
+      const file = 'test/utils/non-existent-content.svg'
 
       let contains
 
@@ -286,7 +290,7 @@ describe('loadSvgFile', async function () {
 
     it('should load an SVG file and resolve it, when loaded - ES2015 syntax (new Promise())', async () => {
       await page.evaluate(async () => {
-        const promise = loadSvgFile('test/util/content.svg')
+        const promise = loadSvgFile('test/utils/content.svg')
 
         return new Promise(resolve => promise.then(() => resolve()))
       })
@@ -297,7 +301,7 @@ describe('loadSvgFile', async function () {
     })
 
     it('should load an SVG file and resolve it, when loaded - ES2017 syntax (async/await)', async () => {
-      await page.evaluate(async () => loadSvgFile('test/util/content.svg'))
+      await page.evaluate(async () => loadSvgFile('test/utils/content.svg'))
 
       const containsSvg = await page.evaluate(() => Container.containsSvg())
 
@@ -313,7 +317,7 @@ describe('loadSvgFile', async function () {
         TestEnvironment.disablePromise()
 
         const result = new _Promise(resolve => {
-          const returnValue = loadSvgFile('test/util/content.svg', () => {
+          const returnValue = loadSvgFile('test/utils/content.svg', () => {
             resolve({
               returnValue: returnValue,
               containerExists: Container.exists(),

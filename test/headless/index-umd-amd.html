@@ -9,7 +9,7 @@
             integrity="sha256-0SGl1PJNDyJwcV5T+weg2zpEMrh7xvlwO4oXgvZCeZk="
             crossorigin="anonymous"></script>
 
-    <script src="../../test/util/container.js"></script>
+    <script src="../../test/utils/utils.js"></script>
 
     <script>
       require.config({
@@ -17,7 +17,7 @@
         paths: { loadSvgFile: '../../dist/load-svg-file.umd' }
       })
 
-      require('loadSvgFile', loadSvgFile => window['loadSvgFile'] = loadSvgFile)
+      require(['loadSvgFile'], loadSvgFile => window['loadSvgFile'] = loadSvgFile)
     </script>
   </body>
 </html>
