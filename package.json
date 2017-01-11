@@ -6,6 +6,33 @@
   "directories": {
     "test": "test"
   },
+  "author": "Richard Szakacs, richardszkcs@gmail.com, www.richardszkcs.com",
+  "homepage": "https://github.com/atjse/load-svg-file#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/atjse/load-svg-file.git"
+  },
+  "bugs": {
+    "url": "https://github.com/atjse/load-svg-file/issues"
+  },
+  "license": "MIT",
+  "keywords": [
+    "svg",
+    "load",
+    "file",
+    "xhr",
+    "dom",
+    "icon",
+    "icons",
+    "sprite",
+    "stack",
+    "inline",
+    "use",
+    "xlink",
+    "href",
+    "loader",
+    "loading"
+  ],
   "scripts": {
     "gulp": "gulp --gulpfile task/index.js",
     "build": "npm run gulp -- build",
@@ -49,33 +76,6 @@
       "src/tmpl/*.*"
     ]
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/atjse/load-svg-file.git"
-  },
-  "keywords": [
-    "svg",
-    "load",
-    "file",
-    "xhr",
-    "dom",
-    "icon",
-    "icons",
-    "sprite",
-    "stack",
-    "inline",
-    "use",
-    "xlink",
-    "href",
-    "loader",
-    "loading"
-  ],
-  "author": "Richard Szakacs, richardszkcs@gmail.com, www.richardszkcs.com",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/atjse/load-svg-file/issues"
-  },
-  "homepage": "https://github.com/atjse/load-svg-file#readme",
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-preset-env": "^1.7.0",
