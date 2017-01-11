@@ -94,14 +94,12 @@ describe('loadSvgFile', function () {
     })
 
     it('should load an SVG file and resolve it, when loaded - ES2015 syntax (new Promise(...))', (done) => {
-      const promise = loadSvgFile('test/utils/content.svg')
+      const loadPromise = loadSvgFile('test/utils/content.svg')
+      const newPromise = new Promise(resolve => loadPromise.then(() => resolve()))
 
-      new Promise(resolve => {
-        promise.then(() => {
-          assert(Container.containsSvg())
-          resolve()
-          done()
-        })
+      newPromise.then(() => {
+        assert(Container.containsSvg())
+        done()
       })
     })
 
