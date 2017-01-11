@@ -75,7 +75,7 @@
  * @example Loading an SVG file, omitting the extension.
  * loadSvgFile('images/icons')
  */
-function loadSvgFile (url, optionsOrCallback, callback) { // eslint-disable-line no-unused-vars
+function loadSvgFile (url, optionsOrCallback, callback) {
   let type = typeof url
 
   if (!url || type !== 'string') {

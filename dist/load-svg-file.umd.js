@@ -86,7 +86,6 @@
    * loadSvgFile('images/icons')
    */
   function loadSvgFile(url, optionsOrCallback, callback) {
-    // eslint-disable-line no-unused-vars
     var type = typeof url;
 
     if (!url || type !== 'string') {

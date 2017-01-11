@@ -71,6 +71,9 @@ function fix (file) {
   // remove unneeded 'use strict' in umd module;
   fixed = fixed.replace(/'use strict';[\n\s]+(\/\/ UMD)/gm, (matches, match) => `${match}`)
 
+  // replace any "eslint-disable-lines"
+  fixed = fixed.replace(/(\s+\/\/ eslint-disable-line .*?)(\n)/gm, (matches, beginning, end) => `${end}`)
+
   file.contents = Buffer.from(fixed)
 }
 
