@@ -4,6 +4,7 @@
   "description": "Load SVG files over XHR and embed the SVG content into the DOM.",
   "main": "dist/load-svg-file.commonjs.js",
   "directories": {
+    "example": "example",
     "test": "test"
   },
   "author": "Richard Szakacs, richardszkcs@gmail.com, www.richardszkcs.com",

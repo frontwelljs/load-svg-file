@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Load SVG File - ES6 Examples</title>
+  </head>
+  <body>
+    <script src="cdn-path/load-svg-file.es6.js"></script>
+    <script>
+      // Load an SVG file - ES2015 - using Promise
+      loadSvgFile('images/icons.svg')
+        .then(() => console.log('SVG Loaded successfully'))
+        .catch(error => console.log(error))
+
+      // Load an SVG file - ES2015 - using Promise - omitting the extension
+      loadSvgFile('images/icons')
+        .then(() => console.log('SVG Loaded successfully'))
+        .catch(error => console.log(error))
+
+      // Load an SVG file - ES2017 - using async/await
+      await loadSvgFile('images/icons.svg')
+
+      // Load an SVG file - ES2017 - using async/await - with options
+      await loadSvgFile('images/icons.svg', {
+        class: 'custom-class', // custom class on the container element
+        hide: false            // don't hide the container element
+      })
+
+      // Load an SVG file - ES2017 - using async/await - catching errors
+      try {
+        await loadSvgFile('images/icons.svg')
+      } catch (error) {
+        console.log(error)
+      }
+    </script>
+  </body>
+</html>
