@@ -21,8 +21,8 @@
    *
    * @typedef {Object} optionsType
    *
-   * @property {string}  [class='']  - The class of the script tag, in which the content of the SVG file will be loaded.
-   * @property {boolean} [hide=true] - Hide the script tag to prevent showing the content of the loaded SVG file.
+   * @property {string}  [class='']  - The class of the element, in which the content of the SVG file will be loaded.
+   * @property {boolean} [hide=true] - Hide the element to prevent showing the content of the loaded SVG file.
    */
 
   /**
@@ -43,18 +43,21 @@
    * @param {optionsType|callbackType} [optionsOrCallback] - The options of the SVG file loader or the callback.
    * @param {callbackType}             [callback]          - The result callback
    *
-   * @returns {Promise|null} Promise if supported and not turned off, otherwise null.
+   * @returns {Promise|null} Promise, where available, otherwise null.
    *
-   * @example Loading an SVG file.
+   * @example
+   * // Loading an SVG file.
    * loadSvgFile('images/icons.svg')
    *
-   * @example Loading an SVG file with options.
+   * @example
+   * // Loading an SVG file with options.
    * loadSvgFile('images/icons.svg', {
    *  class: 'custom-class', // custom class on the container element
    *  hide: false            // don't hide the container element
    * })
    *
-   * @example Loading an SVG file with callback.
+   * @example
+   * // Loading an SVG file with callback.
    * loadSvgFile('images/icons.svg', function (error) {
    *  if (error) {
    *    throw error
@@ -62,7 +65,8 @@
    *  console.log('SVG Loaded successfully')
    * })
    *
-   * @example Loading an SVG file with options and callback.
+   * @example
+   * // Loading an SVG file with options and callback.
    * loadSvgFile(
    *   'images/icons.svg',
    *   {
@@ -77,12 +81,18 @@
    *   }
    * )
    *
-   * @example Loading an SVG file using promises.
+   * @example
+   * // Loading an SVG file using Promise - ES2015.
    * loadSvgFile('images/icons.svg')
    *   .then(() => console.log('SVG Loaded successfully'))
    *   .catch(error => console.log(error))
    *
-   * @example Loading an SVG file, omitting the extension.
+   * @example
+   * // Loading an SVG file using async/await - ES2017.
+   * await loadSvgFile('images/icons.svg')
+   *
+   * @example
+   * // Loading an SVG file, omitting the extension.
    * loadSvgFile('images/icons')
    */
   function loadSvgFile(url, optionsOrCallback, callback) {
