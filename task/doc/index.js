@@ -13,5 +13,6 @@ gulp.task('doc', async () => {
     partial: path.root('/src/doc/**/*.hbs'),
     'no-gfm': true // https://github.com/jsdoc2md/jsdoc-to-markdown/issues/110
   })
+
   await fs.writeFile(path.root('/doc/API.md'), output)
 })
