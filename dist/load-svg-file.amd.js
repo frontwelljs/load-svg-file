@@ -21,7 +21,7 @@ define(function () {
    *
    * @callback callbackType
    *
-   * @param {Object} error - The error, that caused the failure.
+   * @param {Error} error - The error, that caused the failure.
    */
 
   /**
