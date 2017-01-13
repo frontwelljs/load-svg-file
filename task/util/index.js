@@ -1,5 +1,7 @@
 'use strict'
 
+const p = require('path')
+
 const freePort = require('get-port')
 
 const HOST = '127.0.0.1'
@@ -36,8 +38,31 @@ function getUrl (port = PORT) {
   return `http://${host}:${port}`
 }
 
+/**
+ * Normalizes the given path.
+ *
+ * @param {string} path - The path to be normalized.
+ *
+ * @returns {string} The normalized path.
+ */
+function path (path) {
+  return path.normalize(path)
+}
+
+/**
+ * Normalizes the given path relative to the project's root directory.
+ *
+ * @param {string} path - The path to normalize relative to the project's root directory.
+ *
+ * @returns {string} The normalized path.
+ */
+path.root = function (path) {
+  return p.normalize(`${__dirname}/../../${path}`)
+}
+
 module.exports = {
   getHost,
   getFreePort,
-  getUrl
+  getUrl,
+  path
 }
