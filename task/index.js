@@ -3,6 +3,7 @@
 const gulp = require('gulp')
 
 require('./build')
+require('./doc')
 require('./serve')
 require('./coveralls')
 
