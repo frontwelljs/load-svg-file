@@ -40,7 +40,7 @@
     "gulp": "gulp --gulpfile task/index.js",
     "build": "npm run gulp -- build",
     "serve": "npm run gulp -- serve",
-    "doc": "jsdoc2md src/index.js",
+    "doc": "npm run gulp -- doc",
     "check": "standard --verbose | snazzy",
     "fix": "standard --fix",
     "mocha": "mocha test/headless/index.js",

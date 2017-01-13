@@ -94,6 +94,20 @@
    * @example
    * // Loading an SVG file, omitting the extension.
    * loadSvgFile('images/icons')
+   *
+   * @example
+   * // Using in Node.js (CommonJS).
+   * const loadSvgFile = require('load-svg-file')
+   *
+   * @example
+   * // Using in ES6.
+   * import loadSvgFile from 'load-svg-file'
+   *
+   * @example
+   * // Using with RequireJS (AMD).
+   * require(['loadSvgFile'], function(loadSvgFile) {
+   *   console.log('loadSvgFile ready')
+   * })
    */
   function loadSvgFile(url, optionsOrCallback, callback) {
     var type = typeof url;

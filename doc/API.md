@@ -81,6 +81,23 @@ await loadSvgFile('images/icons.svg')
 // Loading an SVG file, omitting the extension.
 loadSvgFile('images/icons')
 ```
+**Example**  
+```js
+// Using in Node.js (CommonJS).
+const loadSvgFile = require('load-svg-file')
+```
+**Example**  
+```js
+// Using in ES6.
+import loadSvgFile from 'load-svg-file'
+```
+**Example**  
+```js
+// Using with RequireJS (AMD).
+require(['loadSvgFile'], function(loadSvgFile) {
+  console.log('loadSvgFile ready')
+})
+```
 <a name="optionsType"></a>
 
 ## optionsType : <code>Object</code>
@@ -117,7 +134,7 @@ The SVG content loading callback.
   </thead>
   <tbody>
 <tr>
-    <td>error</td><td><code>Object</code></td><td><p>The error, that caused the failure.</p>
+    <td>error</td><td><code>Error</code></td><td><p>The error, that caused the failure.</p>
 </td>
     </tr>  </tbody>
 </table>
