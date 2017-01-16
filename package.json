@@ -60,6 +60,7 @@
     "test-type-umd-commonjs-min": "npm run mocha -- --type-umd-commonjs-min",
     "test": "npm-run-all test-type-*",
     "test-ci": "npm run check && npm run build && npm run test",
+    "test-pr": "npm run test-ci",
     "coverage": "npm run gulp -- coveralls"
   },
   "standard": {
