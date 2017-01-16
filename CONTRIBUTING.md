@@ -71,7 +71,7 @@ You may get feedback about what should be fixed/changed in your modified code.
 THANK YOU!
 ----------
 
- [1]: /issues
+ [1]: https://github.com/atjse/load-svg-file/issues
  [2]: https://standardjs.com/
  [3]: https://docs.npmjs.com/files/package.json#people-fields-author-contributors
  [4]: https://blog.github.com/2013-05-14-closing-issues-via-pull-requests/
