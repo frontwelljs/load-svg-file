@@ -1,3 +1,9 @@
+# Temporary files
+.cache
+.idea
+.nyc_output
+coverage
+
 # Sources directory
 src/
 
