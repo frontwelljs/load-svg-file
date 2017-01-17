@@ -11,7 +11,7 @@ const path = util.path
 gulp.task('bump', async () => {
   const pkg = require('../../package')
 
-  let type = process.argv[process.argv.length-1]
+  let type = process.argv[process.argv.length - 1]
 
   if (type && type.startsWith('--')) {
     type = type.substr(2)

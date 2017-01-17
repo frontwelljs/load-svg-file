@@ -65,7 +65,11 @@
     "bump": "npm run gulp -- bump",
     "bump-major": "npm run bump -- --major",
     "bump-minor": "npm run bump -- --minor",
-    "bump-patch": "npm run bump -- --patch"
+    "bump-patch": "npm run bump -- --patch",
+    "prepare": "npm run check && npm run build && npm run test",
+    "prepare-major": "npm run bump-major && npm run prepare",
+    "prepare-minor": "npm run bump-minor && npm run prepare",
+    "prepare-patch": "npm run bump-patch && npm run prepare"
   },
   "standard": {
     "globals": [

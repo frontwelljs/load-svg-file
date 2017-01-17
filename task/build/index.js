@@ -30,6 +30,7 @@ const license = {
   jsdoc: dedent(`
     /**
      * @file ${pkg.description}
+     * @version ${pkg.version}
      * @copyright ${pkg.author}
      * @license ${pkg.license}
     */
