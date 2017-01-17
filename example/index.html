@@ -6,7 +6,13 @@
     <title>Load SVG File - ES5 Examples</title>
   </head>
   <body>
-    <script src="cdn-path/load-svg-file.js"></script>
+    <!-- Development version -->
+    <script src="https://cdn.jsdelivr.net/npm/load-svg-file/dist/load-svg-file.js"></script>
+
+    <!-- Production version - (source map included besides the file)
+         For SRI, check out the project's page on jsdelivr. -->
+    <script src="https://cdn.jsdelivr.net/npm/load-svg-file/dist/load-svg-file.min.js"></script>
+
     <script>
       // Load an SVG file
       loadSvgFile('images/icons.svg')

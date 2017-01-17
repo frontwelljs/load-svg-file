@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Load SVG File - ES5 Examples</title>
+  </head>
+  <body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.5/require.min.js"
+            integrity="sha256-0SGl1PJNDyJwcV5T+weg2zpEMrh7xvlwO4oXgvZCeZk="
+            crossorigin="anonymous"></script>
+
+    <script>
+      require.config({
+        baseUrl: '/',
+        paths: { loadSvgFile: 'https://cdn.jsdelivr.net/npm/load-svg-file/dist/load-svg-file.amd' }
+      })
+
+      require(['loadSvgFile'], function (loadSvgFile) {
+        // Load an SVG file
+        loadSvgFile('images/icons.svg')
+
+        // Loading an SVG file, omitting the extension
+        loadSvgFile('images/icons')
+
+        // Loading an SVG file with options
+        loadSvgFile('images/icons.svg', {
+          class: 'custom-class', // custom class on the container element
+          hide: false            // don't hide the container element
+        })
+
+        // Loading an SVG file with callback
+        loadSvgFile('images/icons.svg', function (error) {
+          if (error) {
+            throw error
+          }
+          console.log('SVG Loaded successfully')
+        })
+
+        // Loading an SVG file with options and callback
+        loadSvgFile('images/icons.svg',
+          {
+            class: 'custom-class', // custom class on the container element
+            hide: false            // don't hide the container element
+          },
+          function (error) {
+            if (error) {
+              throw error
+            }
+            console.log('SVG Loaded successfully')
+          }
+        )
+      })
+    </script>
+  </body>
+</html>

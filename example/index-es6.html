@@ -6,8 +6,9 @@
     <title>Load SVG File - ES6 Examples</title>
   </head>
   <body>
-    <script src="cdn-path/load-svg-file.es6.js"></script>
-    <script>
+    <script type="module">
+      import loadSvgFile from 'https://cdn.jsdelivr.net/npm/load-svg-file/dist/load-svg-file.es6.js'
+
       // Load an SVG file - ES2015 - using Promise
       loadSvgFile('images/icons.svg')
         .then(() => console.log('SVG Loaded successfully'))
