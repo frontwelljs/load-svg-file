@@ -1,5 +1,6 @@
 /**
  * @file Load SVG files over XHR and embed the SVG content into the DOM.
+ * @version 1.0.0
  * @copyright Richard Szakacs, richardszkcs@gmail.com, www.richardszkcs.com
  * @license MIT
 */
