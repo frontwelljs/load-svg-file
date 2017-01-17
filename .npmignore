@@ -1,0 +1,18 @@
+# Sources directory
+src/
+
+# Tasks and automations directory
+task/
+
+# Tests directory
+test/
+
+# Development-related files
+.babelrc
+.editorconfig
+.nycrc
+.travis.yml
+
+# Development-related documents
+CONTRIBUTING.md
+DEVELOPMENT.md
