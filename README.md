@@ -19,9 +19,15 @@ npm install load-svg-file --save
 # Using Yarn
 yarn add load-svg-file
 
-# Using CDN
-...
+# Using CDN - development
+https://cdn.jsdelivr.net/npm/load-svg-file/dist/load-svg-file.js
+
+# Using CDN - production (source map included besides the file)
+https://cdn.jsdelivr.net/npm/load-svg-file/dist/load-svg-file.min.js
 ```
+
+When using CDN, for **SRI** [*(Subresource Integrity)*][1], 
+check out the [**jsdelivr**][2] page and get there.
 
 Usage
 =====
@@ -96,3 +102,6 @@ License
 =======
 
 [MIT](LICENSE.md) @ [Richard Szakacs](https://www.github.com/richardszkcs)
+
+ [1]: https://hacks.mozilla.org/2015/09/subresource-integrity-in-firefox-43/
+ [2]: https://www.jsdelivr.com/package/npm/load-svg-file?path=dist
