@@ -59,17 +59,16 @@
     "test-type-umd-commonjs": "npm run mocha -- --type-umd-commonjs",
     "test-type-umd-commonjs-min": "npm run mocha -- --type-umd-commonjs-min",
     "test": "npm-run-all test-type-*",
-    "test-ci": "npm run check && npm run build && npm run test",
+    "test-ci": "npm run check && npm run doc && npm run build && npm run test",
     "test-pr": "npm run test-ci",
     "coverage": "npm run gulp -- coveralls",
     "bump": "npm run gulp -- bump",
-    "bump-major": "npm run bump -- --major",
-    "bump-minor": "npm run bump -- --minor",
-    "bump-patch": "npm run bump -- --patch",
-    "prepare": "npm run check && npm run build && npm run doc && npm run test",
-    "prepare-major": "npm run bump-major && npm run prepare",
-    "prepare-minor": "npm run bump-minor && npm run prepare",
-    "prepare-patch": "npm run bump-patch && npm run prepare"
+    "prepare": "npm run check && npm run doc && npm run build && npm run test",
+    "versioning": "npm run gulp -- versioning",
+    "release-major": "npm run test-pr && npm run bump -- --major && npm run prepare && npm run versioning",
+    "release-minor": "npm run test-pr && npm run bump -- --minor && npm run prepare && npm run versioning",
+    "release-patch": "npm run test-pr && npm run bump -- --patch && npm run prepare && npm run versioning",
+    "release": "npm run release-patch"
   },
   "standard": {
     "globals": [
@@ -120,6 +119,7 @@
     "requirejs": "^2.3.5",
     "semver": "^5.5.0",
     "serve-static": "^1.13.2",
+    "shelljs": "^0.8.2",
     "snazzy": "^7.1.1",
     "standard": "^11.0.1"
   }
