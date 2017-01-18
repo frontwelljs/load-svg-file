@@ -7,7 +7,8 @@ load-svg-file
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
 Load **SVG files over XHR** and embed the SVG content **into the DOM**.
-Compatible with every environment (CommonJS, AMD, UMD, ES2015-2017) and uses Promises, where available.
+Compatible with every module type, environment, and variety (browser, Node.js, 
+AMD, CommonJS, UMD, ES2015-2017) and uses Promises, where available.
 
 Installation
 ============
@@ -26,8 +27,8 @@ https://cdn.jsdelivr.net/npm/load-svg-file/dist/load-svg-file.js
 https://cdn.jsdelivr.net/npm/load-svg-file/dist/load-svg-file.min.js
 ```
 
-When using CDN, for **SRI** [*(Subresource Integrity)*][1], 
-check out the [**jsdelivr**][2] page and get there.
+To use **CDN with SRI** [*(Subresource Integrity)*][1], 
+check out the [**jsdelivr**][2] page and get the hash there.
 
 Usage
 =====
