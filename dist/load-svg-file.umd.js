@@ -1,6 +1,6 @@
 /**
  * @file Load SVG files over XHR and embed the SVG content into the DOM.
- * @version 1.0.1
+ * @version 1.0.2
  * @copyright Richard Szakacs, richardszkcs@gmail.com, www.richardszkcs.com
  * @license MIT
 */
@@ -106,7 +106,7 @@
    *
    * @example
    * // Using with RequireJS (AMD).
-   * require(['loadSvgFile'], function(loadSvgFile) {
+   * require(['loadSvgFile'], function (loadSvgFile) {
    *   console.log('loadSvgFile ready')
    * })
    */

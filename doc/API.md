@@ -94,7 +94,7 @@ import loadSvgFile from 'load-svg-file'
 **Example**  
 ```js
 // Using with RequireJS (AMD).
-require(['loadSvgFile'], function(loadSvgFile) {
+require(['loadSvgFile'], function (loadSvgFile) {
   console.log('loadSvgFile ready')
 })
 ```
