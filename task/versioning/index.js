@@ -11,6 +11,7 @@ gulp.task('versioning', done => {
   shell.exec('git add .')
   shell.exec(`git commit -m 'Release v${version}'`)
   shell.exec(`git tag v${version}`)
+  shell.exec('git push -u origin master')
 
   const error = shell.error()
 
