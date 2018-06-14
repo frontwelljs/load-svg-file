@@ -64,9 +64,9 @@
     "bump": "npm run gulp -- bump",
     "prepare": "npm run check && npm run doc && npm run build && npm run test",
     "versioning": "npm run gulp -- versioning",
-    "release-major": "npm run test-pr && npm run bump -- --major && npm run prepare && npm run versioning && npm publish",
-    "release-minor": "npm run test-pr && npm run bump -- --minor && npm run prepare && npm run versioning && npm publish",
-    "release-patch": "npm run test-pr && npm run bump -- --patch && npm run prepare && npm run versioning && npm publish",
+    "release-major": "npm run prepare && npm run bump -- --major && npm run prepare && npm run versioning && npm publish",
+    "release-minor": "npm run prepare && npm run bump -- --minor && npm run prepare && npm run versioning && npm publish",
+    "release-patch": "npm run prepare && npm run bump -- --patch && npm run prepare && npm run versioning && npm publish",
     "release": "npm run release-patch"
   },
   "standard": {
