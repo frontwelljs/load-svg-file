@@ -3,15 +3,18 @@
 const gulp = require('gulp')
 const shell = require('shelljs')
 
-gulp.task('versioning', done => {
-  const pkg = require('../../package')
-  const version = pkg.version
+const util = require('../util')
+const path = util.path
 
-  shell.cd('..')
+const pkg = require('../../package')
+const version = pkg.version
+
+gulp.task('versioning', done => {
+  shell.cd(path.root('/'))
   shell.exec('git add .')
   shell.exec(`git commit -m 'Release v${version}'`)
   shell.exec(`git tag v${version}`)
-  shell.exec('git push -u origin master')
+  shell.exec('git push -u origin master --follow-tags')
 
   const error = shell.error()
 
