@@ -1,5 +1,5 @@
-Development
-===========
+Development Manual
+==================
 
 **DISCUSS, CLONE, DEVELOP, COMMIT, PROFIT**
 
@@ -49,6 +49,9 @@ npm run test
 
 # Generates the documentation in doc/API.md
 npm run doc
+
+# Prepares (check, test, and build) the project before commit 
+npm run prepare
 ```
 
 HAVE FUN!

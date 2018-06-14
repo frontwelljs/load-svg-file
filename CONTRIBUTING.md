@@ -7,6 +7,12 @@ Before you doing so, **please read the following simple steps** on how to
 contribute. This will **make life easier and help to avoid wasting time**
 on things, which are not requested.
 
+Run through the Development Manual
+----------------------------------
+
+Check out the short, but concise [**development manual**](DEVELOPMENT.md) 
+for tools, structure, and commands.  
+
 Discuss the changes before doing them
 -------------------------------------
 
@@ -36,8 +42,8 @@ Fixing issues
    # Checks the coding style
    npm run check
 
-   # Checks that everything is all right
-   npm run test-pr
+   # Prepares the project before commit and check that everything is all right
+   npm run prepare
    ```
    
  - In **package.json**, add yourself to the [**array of contributors**][3]

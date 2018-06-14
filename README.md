@@ -95,7 +95,7 @@ Contribution
 
 **Any contribution is appreciated**. To get going, check out the 
 [**contribution guidelines**](CONTRIBUTING.md), then the 
-[**development document**](DEVELOPMENT.md).
+[**development manual**](DEVELOPMENT.md).
 
 **Thank you, have fun!**
 
