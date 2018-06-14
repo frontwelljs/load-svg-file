@@ -4,7 +4,7 @@ load-svg-file
 [![Build Status](https://travis-ci.org/atjse/load-svg-file.svg?branch=master)](https://travis-ci.org/atjse/load-svg-file)
 [![Coverage Status](https://coveralls.io/repos/github/atjse/load-svg-file/badge.svg?branch=master)](https://coveralls.io/github/atjse/load-svg-file?branch=master)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](CONTRIBUTING.md)
 
 Load **SVG files over XHR** and embed the SVG content **into the DOM**.
 Compatible with every module type, environment, and variety (browser, Node.js, 
